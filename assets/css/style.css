@@ -1,0 +1,133 @@
+
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background-image: url("../images/background.png");
+      display: flex;
+      flex-direction: column;
+    justify-content: flex-start;  
+      align-items: center;
+      height: 100vh;
+    }
+
+    .quiz-card {
+      background: #fffaf7;
+      border: 2px solid #e2c6b6;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h1 {
+         font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #b76e79;
+ background: linear-gradient(to bottom right, #fdf6f0, #f9e1e0);
+       border: 2px solid #e2c6b6;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 7rem;
+    }
+    
+    h2, p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #9c5c65;
+      background: #fffaf7;
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+h2::after {
+  content: "❦";
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 1.5rem;
+  color: #c9a66b;
+}
+    .quote {
+  font-style: italic;
+  font-size: 1.4rem;
+  margin: 2rem 0;
+  color: #4a3c3c;
+  position: relative;
+  padding: 1rem;
+}
+
+.quote::before, .quote::after {
+  content: '"';
+  font-size: 2rem;
+  color: #b76e79;
+}
+
+ button {
+    display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 12px;
+      background-color: #f3d6d6;
+      color: #333;
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      cursor: pointer;
+      transition: background 0.3s ease;
+ }
+   
+ 
+.fade-in {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+    .options button {
+  display: block;
+  width: 100%;
+  margin: 0.6rem 0;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(to right, #f9dede, #f3caca);
+  color: #333;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+  /*  NEW line to make colors fade smoothly */
+  transition: background 0.5s ease, border 0.5s ease, color 0.5s ease;
+
+.options button:hover {
+  background: linear-gradient(to right, #f7cfcf, #ebbaba);
+  transform: translateY(-2px);
+}
+
+.options button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.options button.correct {
+  background: #cde9d6;  /* soft green */
+  border: 2px solid #5a8f64;
+  color: #2f5132;
+  transition: background-color 0.5s ease;
+}
+
+.options button.wrong {
+  background: #f6d0d5;  /* soft red */
+  border: 2px solid #b45c6e;
+  color: #5c1f2e;
+  transition: background-color 0.5s ease;
+}
+ 
