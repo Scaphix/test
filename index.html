@@ -8,56 +8,46 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>Jane Austen Quote Quiz</h1>
+    <h1 id="title">Jane Austen Quote Quiz</h1>
     
-    <div class="quiz-card">
-      <div class="screen active" id="start-screen">
+    <div id="start-screen" class="quiz-card screen active">
         <h1>Quiz Time!</h1>
         <p>Test your knowledge with these fun questions</p>
         <button id="start-btn">Start Quiz</button>
-      </div>
-   </div>
-
-<div class="screen quiz-card" id="quiz-screen">
-        <div class="quiz-header ">
-          <div class="quote" id="question-text">
-   <h2 id="question-text">Quote goes here</h2>
+      
     </div>
+
+      <div id="quiz-screen" class="quiz-card screen">
+        
+          <div class="quote" id="question-text">
+
+          </div>
           <div class="quiz-info">
             <p>
               Question <span id="current-question">1</span> of <span id="total-questions">5</span>
             </p>
-
             <p>Score: <span id="score">0</span></p>
           </div>
-        </div>
- <div id="answers-container" class="answers-container">
+          <div id="answers-container" >
              <div class="options">
-      <button  id="option1"></button>
-      <button  id="option2"></button>
-      <button   id="option3"></button>
-      <button  id="option4"></button>
-    </div>
-
-
-        </div>
-
-        <div class="progress-bar">
+                <button  id="option1"></button>
+                <button  id="option2"></button>
+                <button  id="option3"></button>
+                <button  id="option4"></button>
+             </div>
+          </div>
+          <div class="progress-bar">
           <div id="progress" class="progress"></div>
-        </div>
+          </div>
       </div>
 
-      <div id="result-screen" class="screen">
-        <h1>Quiz Results</h1>
-        <div class="result-info">
+    <div id="result-screen" class="quiz-card screen">
+        <h2>Quiz Complete!</h2>
+        <div class="result-info ">
           <p>You scored <span id="final-score">0</span> out of <span id="max-score">5</span></p>
-
-          <div id="result-message">Good job!</div>
         </div>
         <button id="restart-btn">Restart Quiz</button>
       </div>
-    </div>
-
 
  <script src="assets/js/script.js"></script>
 </body>

@@ -1,3 +1,29 @@
+// DOM Elements
+const startScreen = document.getElementById("start-screen");
+const quizScreen = document.getElementById("quiz-screen");
+const resultScreen = document.getElementById("result-screen");
+
+const startButton = document.getElementById("start-btn");
+const questionText = document.getElementById("question-text");
+const currentQuestionSpan = document.getElementById("current-question");
+const totalQuestionsSpan = document.getElementById("total-questions");
+const scoreSpan = document.getElementById("score");
+const maxScoreSpan = document.getElementById("max-score");
+const restartButton = document.getElementById("restart-btn");
+const progressBar = document.getElementById("progress");
+
+ const quoteElement = document.querySelector('.quote');
+  const quizCard = document.querySelector('.quiz-card');
+  const button1 = document.getElementById('option1');
+  const button2 = document.getElementById('option2');
+  const button3 = document.getElementById('option3');
+  const button4 = document.getElementById('option4');
+
+const optionButtons = [button1,button2, button3, button4];
+
+
+
+
 
 
   // 1. Quiz data 
@@ -38,20 +64,38 @@
 
   let currentQuestion = 0;
   let score = 0;
- const quoteElement = document.querySelector('.quote');
-  const quizCard = document.querySelector('.quiz-card');
-  const button1 = document.getElementById('option1');
-  const button2 = document.getElementById('option2');
-  const button3 = document.getElementById('option3');
-  const button4 = document.getElementById('option4');
+  let answersDisabled = false;
 
-const optionButtons = [button1,button2, button3, button4];
+
+totalQuestionsSpan.textContent = quizData.length;
+maxScoreSpan.textContent = quizData.length;
+
+// event listeners
+startButton.addEventListener("click", startQuiz);
+restartButton.addEventListener("click", restartQuiz);
+
+function startQuiz() {
+  // reset vars
+    currentQuestion = 0;
+  score = 0;
+  scoreSpan.textContent = 0;
+
+  startScreen.classList.remove("active");
+  quizScreen.classList.add("active");
+
+  showQuestion();
+}
+
+
   // Show one question
   function showQuestion() {
-    const question = quizData[currentQuestion];
+      // reset state
+  answersDisabled = false;
 
+     const question = quizData[currentQuestion];
+currentQuestionSpan.textContent = currentQuestion + 1;
     // Show the quote
-    quoteElement.textContent = `"${question.quote}"`;
+    quoteElement.textContent = `${question.quote}`;
 
 
     // Create options
@@ -79,6 +123,7 @@ const optionButtons = [button1,button2, button3, button4];
   optionButtons.forEach(button => {
     if (button.textContent === correctAnswer) {
       button.classList.add("correct"); // green
+   
     }
   });
 
@@ -91,10 +136,11 @@ const optionButtons = [button1,button2, button3, button4];
     }
      else {
     score++; // only add score if correct
+    scoreSpan.textContent=score;
   };
  
 
-    // Next question after 2 seconds
+    // Next question after 1 seconds
     setTimeout(() => {
       currentQuestion++;
       if (currentQuestion < quizData.length) {
@@ -106,17 +152,18 @@ const optionButtons = [button1,button2, button3, button4];
   }
 
 
-
-  // 5. Show final score
   function showResults() {
-    quizCard.innerHTML = `
-      <h2>Quiz Complete!</h2>
-      <p>You scored ${score} out of ${quizData.length}.</p>
-      <button onclick="location.reload()">Play Again</button>
-    `;
-  }
+  quizScreen.classList.remove("active");
+  resultScreen.classList.add("active");
 
-  // start page
-   showQuestion();
+
+}
+
+function restartQuiz() {
+  resultScreen.classList.remove("active");
+   startScreen.classList.add("active");
+ 
+}
+  
 
  

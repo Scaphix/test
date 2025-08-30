@@ -1,40 +1,62 @@
-
-    body {
-      margin: 0;
+body {
+    margin:2.5rem;
       font-family: 'Playfair Display', serif;
       background-image: url("../images/background.png");
       display: flex;
       flex-direction: column;
     justify-content: flex-start;  
       align-items: center;
-      height: 100vh;
+      max-height: 100vh;
     }
 
-    .quiz-card {
-      background: #fffaf7;
-      border: 2px solid #e2c6b6;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      padding: 2rem;
-      max-width: 600px;
-      text-align: center;
-    }
+.quiz-card {
+  background-color: #fffaf7;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e2c6b6;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+  position: relative;
+}
 
-    h1 {
-         font-family: 'Dancing Script', cursive;
-      font-size: 2.5rem;
+
+/* SCREENS */
+.screen {
+  display: none;
+  padding: 2rem;
+  text-align: center;
+}
+
+.screen.active {
+  display: block;
+}
+
+#title{
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
       color: #b76e79;
- background: linear-gradient(to bottom right, #fdf6f0, #f9e1e0);
+       background: linear-gradient(to bottom right, #fdf6f0, #f9e1e0);
        border: 2px solid #e2c6b6;
       border-radius: 20px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       padding: 2rem;
       max-width: 600px;
       text-align: center;
-      margin-bottom: 7rem;
+      margin-bottom: 4rem;
+
+}
+h1 {
+    font-family: 'Playfair Display', cursive;
+    font-size: 3rem;
+    Margin:0;
+    padding-top: 2rem;
+    color: #b76e79;
+    text-align: center;
+     
     }
     
-    h2, p {
+h2, p {
       font-family: 'Dancing Script', cursive;
       font-size: 2.5rem;
       color: #9c5c65;
@@ -50,13 +72,14 @@ h2::after {
   font-size: 1.5rem;
   color: #c9a66b;
 }
-    .quote {
+.quote {
   font-style: italic;
-  font-size: 1.4rem;
-  margin: 2rem 0;
+  font-size: 1.5rem;
+  margin: 0;
   color: #4a3c3c;
   position: relative;
-  padding: 1rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .quote::before, .quote::after {
@@ -65,7 +88,17 @@ h2::after {
   color: #b76e79;
 }
 
- button {
+.quiz-info p {
+  font-size: 1.5rem ;
+  margin:0;
+}
+.quiz-info  {
+
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
     display: block;
       width: 100%;
       margin: 0.5rem 0;
@@ -78,19 +111,15 @@ h2::after {
       font-family: 'Playfair Display', serif;
       cursor: pointer;
       transition: background 0.3s ease;
- }
-   
- 
-.fade-in {
-  animation: fadeIn 1s ease;
+      animation: fadeIn 1s ease;
 }
-
+ 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-    .options button {
+.options button {
   display: block;
   width: 100%;
   margin: 0.6rem 0;
@@ -104,9 +133,6 @@ h2::after {
   transition: all 0.3s ease;
   box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
-
-  /*  NEW line to make colors fade smoothly */
-  transition: background 0.5s ease, border 0.5s ease, color 0.5s ease;
 
 .options button:hover {
   background: linear-gradient(to right, #f7cfcf, #ebbaba);
@@ -131,3 +157,62 @@ h2::after {
   transition: background-color 0.5s ease;
 }
  
+.progress-bar {
+  height: 10px;
+  background-color: #e2c6b6;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #5c1f2e;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* RESULT SCREEN */
+
+.result-info p {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 500px) {
+  /* when we hit 500px and below, implement the styles below */
+
+  .screen {
+    padding: 2rem;
+  }
+#title{
+    font-size: 1.5rem;
+    }
+ h1,h2 {
+    font-size: 1rem;
+  }
+  
+ .quiz-info p{
+font-size: 1rem;
+  }
+.result-info p {
+  font-size: 1rem; 
+}
+
+.quiz-card{
+ padding: 0.5rem;
+}
+
+.quote {
+
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+  button{
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 0.5rem;
+  }
+}
