@@ -1,3 +1,5 @@
+
+
 // DOM Elements
 
 const quizScreen = document.getElementById("quiz-screen");
@@ -138,11 +140,19 @@ function checkAnswer(clickedButton, correctAnswer) {
   // If the clicked button was wrong
   if (clickedButton.textContent !== correctAnswer) {
     clickedButton.classList.add("wrong");
-    playWrongSound();
+     playWrongSound();
+   
   } else {
     score++; // only add score if correct
     playCorrectSound();
     scoreSpan.textContent = score;
+  }
+
+  function playCorrectSound(){
+    document.getElementById("correct-sound").play();
+  }
+function playWrongSound(){
+    document.getElementById("wrong-sound").play();
   }
   // Next question after 1 seconds
   setTimeout(() => {

@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+    
+    document.getElementById("intro-melody").play();
+});
+
+
 const startScreen = document.getElementById("start-screen");
 const nameScreen = document.getElementById("name-screen");
 

@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+    
+   <audio id="correct-sound" src="assets/images/correct.mp3" preload="auto"></audio>
+    <audio id="wrong-sound" src="assets/images/wrong.mp3" preload="auto"></audio>
+
     <a href="index.html"><h1 id="title">Jane Austen Quote Quiz</h1></a>
 
   
@@ -30,7 +34,7 @@
           <button id="option3"></button>
           <button id="option4"></button>
         </div>
-        
+     
       </div>
       <div class="progress-bar">
         <div id="progress" class="progress"></div>
@@ -52,7 +56,7 @@
 
     </div>
 
-  <div id="score-screen" class="score-card screen active">
+  <div id="score-screen" class="score-card screen ">
       <h2>Score table</h2>
       <div class="quiz-end">
         <p><span class="name-display">name</span> </p>
@@ -63,8 +67,7 @@
       </div>
       <button class="restart-btn">Restart Quiz</button>
     </div>
-
-
+  
 
     <script src="assets/js/script.js"></script>
   </body>
