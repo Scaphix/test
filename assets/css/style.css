@@ -20,6 +20,45 @@ body {
   position: relative;
 }
 
+/*intro screen*/
+.intro-card {
+  background-color: #fffaf7;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e2c6b6;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 800px;
+  
+}
+.intro-card p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #9c5c65;
+      background: #fffaf7;
+      text-align: center;
+       width: 100%;
+       max-width: 800px;
+      margin-bottom: 1rem;
+    }
+     .intro-card h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #9c5c65;
+      background: #fffaf7;
+      text-align: center;
+       width: 100%;
+       max-width: 800px;
+      margin-bottom: 1rem;
+    }
+   
+
+    /* Inline error message style */
+.error-msg {
+  color: #e74c3c;   /* red */
+  font-size: 0.85em;
+  display: block;
+  margin-top: 4px;
+}
 
 /* SCREENS */
 .screen {
@@ -55,7 +94,9 @@ h1 {
     text-align: center;
      
     }
-    
+    a {
+        text-decoration: none;
+    }
 h2, p {
       font-family: 'Dancing Script', cursive;
       font-size: 2.5rem;
@@ -113,7 +154,27 @@ button {
       transition: background 0.3s ease;
       animation: fadeIn 1s ease;
 }
+ input, select {
  
+      max-width: 200px;
+      margin: 0;
+      padding: 0.5rem;
+      border: none;
+      background-color: #f3d6d6 ;
+      color: #333;
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      cursor: pointer;
+    
+ }
+#element {
+    display:flex;
+   justify-content: center;
+   gap: 1em;
+     
+ }
+
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -216,3 +277,34 @@ font-size: 1rem;
     font-size: 0.5rem;
   }
 }
+
+
+
+/* Scoreboard card style */
+.score-card {
+   font-family: "Georgia", serif;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background-color: #fffaf7;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e2c6b6;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+
+/* Final score text */
+#final-score {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #16a085;
+}
+
+/* High score text */
+#high-score {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #e67e22;
+}
+

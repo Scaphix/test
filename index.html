@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jane Austen Quote Quiz</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <h1 id="title">Jane Austen Quote Quiz</h1>
-    
-    <div id="start-screen" class="quiz-card screen active">
-        <h1>Quiz Time!</h1>
-        <p>Test your knowledge with these fun questions</p>
-        <button id="start-btn">Start Quiz</button>
-      
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jane Austen Quote Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <h1 id="title">The Regency Chronicle</h1>
+
+
+    <div id="start-screen" class="intro-card screen active">
+        <h2>Esteemed Reader, </h2>
+        <p> We bid you welcome to our humble Chronicle. We
+        present, for your diversion, a little trial of wit and memory. Within
+        these pages you shall find select passages from the works of <b>Miss
+        Austen</b>; your task, both simple and delightful, is to unite each
+        quotation with its rightful novel. May your recollections serve you
+        well, and your spirits remain uncommonly high.
+      </p>
+          <button id="start-btn">Enter the Quiz</button>
     </div>
 
-      <div id="quiz-screen" class="quiz-card screen">
-        
-          <div class="quote" id="question-text">
+     <div id="name-screen" class="quiz-card screen ">
+      <h1>Jane Austen Quote Quiz</h1>
+      <p>
+        Would you be so obliging as to favour me with your name, dear guest?
+      </p>
+    <div id="element">
+      <label for="name_title" diplay="none"></label>
+      <select id="name_title" class="name_title">
+        <option value="" selected>Select title</option>
+        <option value="Sir">Sir</option>
+        <option value="My lady">My Lady</option>
+        <option value="Your Grace">Your Grace</option>
+      </select>
+      <input type="text" id="name-input" placeholder="Name" />
+    </div> 
+        <div id="error-box">
+        <span id="title-error" class="error-msg"></span>
+        <span id="name-error" class="error-msg"></span>
+    </div>
+      <button id="name-btn">Let us begin</button>
+    </div>
 
-          </div>
-          <div class="quiz-info">
-            <p>
-              Question <span id="current-question">1</span> of <span id="total-questions">5</span>
-            </p>
-            <p>Score: <span id="score">0</span></p>
-          </div>
-          <div id="answers-container" >
-             <div class="options">
-                <button  id="option1"></button>
-                <button  id="option2"></button>
-                <button  id="option3"></button>
-                <button  id="option4"></button>
-             </div>
-          </div>
-          <div class="progress-bar">
-          <div id="progress" class="progress"></div>
-          </div>
-      </div>
-
-    <div id="result-screen" class="quiz-card screen">
-        <h2>Quiz Complete!</h2>
-        <div class="result-info ">
-          <p>You scored <span id="final-score">0</span> out of <span id="max-score">5</span></p>
-        </div>
-        <button id="restart-btn">Restart Quiz</button>
-      </div>
-
- <script src="assets/js/script.js"></script>
-</body>
+     <script src="assets/js/enter_name.js"></script>
+  </body>
 </html>
+
+    

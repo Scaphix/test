@@ -1,15 +1,18 @@
-// DOM Elements
-const startScreen = document.getElementById("start-screen");
+  // DOM Elements
+
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
+const scoreScreen = document.getElementById("score-screen");
 
-const startButton = document.getElementById("start-btn");
+const scoreButton = document.getElementById("score-btn");
 const questionText = document.getElementById("question-text");
 const currentQuestionSpan = document.getElementById("current-question");
 const totalQuestionsSpan = document.getElementById("total-questions");
 const scoreSpan = document.getElementById("score");
+const finalScoreSpan= document.getElementById("final-score");
+const myName = document.getElementById("name-display");
 const maxScoreSpan = document.getElementById("max-score");
-const restartButton = document.getElementById("restart-btn");
+
 const progressBar = document.getElementById("progress");
 
  const quoteElement = document.querySelector('.quote');
@@ -21,10 +24,7 @@ const progressBar = document.getElementById("progress");
 
 const optionButtons = [button1,button2, button3, button4];
 
-
-
-
-
+const restartButton = document.querySelector(".restart-btn");
 
   // 1. Quiz data 
   const quizData = [
@@ -62,108 +62,129 @@ const optionButtons = [button1,button2, button3, button4];
 
   ];
 
-  let currentQuestion = 0;
-  let score = 0;
-  let answersDisabled = false;
-
+ let currentQuestion = 0;
+ let score = 0;
+ let answersDisabled = false;
 
 totalQuestionsSpan.textContent = quizData.length;
 maxScoreSpan.textContent = quizData.length;
 
 // event listeners
-startButton.addEventListener("click", startQuiz);
+
 restartButton.addEventListener("click", restartQuiz);
+scoreButton.addEventListener("click", showScore);
+
+startQuiz();
 
 function startQuiz() {
   // reset vars
-    currentQuestion = 0;
+  currentQuestion = 0;
   score = 0;
   scoreSpan.textContent = 0;
-
-  startScreen.classList.remove("active");
-  quizScreen.classList.add("active");
 
   showQuestion();
 }
 
-
-  // Show one question
-  function showQuestion() {
-      // reset state
-  answersDisabled = false;
-
-     const question = quizData[currentQuestion];
-currentQuestionSpan.textContent = currentQuestion + 1;
-    // Show the quote
+function showQuestion() {
+        // reset state
+    answersDisabled = false;
+        //randomize the quotes
+    quizData.sort(() => Math.random() - 0.5);
+    const question = quizData[currentQuestion];
+    currentQuestionSpan.textContent = currentQuestion + 1;
+        // Show the quote
     quoteElement.textContent = `${question.quote}`;
-
-
-    // Create options
-    
+       //randomise the options:
+    question.options = question.options.sort(() => Math.random() - 0.5);
+       // Create buttons
     button1.textContent = `${question.options[0]}`;
     button2.textContent = `${question.options[1]}`;
     button3.textContent = `${question.options[2]}`;
     button4.textContent = `${question.options[3]}`;
-    
-    // Reset buttons for this new question
-  optionButtons.forEach(button => {
-  button.classList.remove("correct", "wrong");
-    button.disabled = false;
-    // Add new click behavior
-    button.onclick = () => checkAnswer(button, question.answer);
-  });
-      
-    };
+       // Reset buttons for this new question
+    optionButtons.forEach(button => {
+            button.classList.remove("correct", "wrong");
+            button.disabled = false;
+            // Add new click behavior
+            button.onclick = () => checkAnswer(button, question.answer);
+        });
+        
+};
   
   // Check the clicked answer
-  function checkAnswer(clickedButton, correctAnswer) {
-    // Disable all buttons once an answer is clicked
-  optionButtons.forEach(button => button.disabled = true); // lock after answering
-// Highlight the correct answer
-  optionButtons.forEach(button => {
-    if (button.textContent === correctAnswer) {
-      button.classList.add("correct"); // green
-   
-    }
-  });
+function checkAnswer(clickedButton, correctAnswer) {
+        // Disable all buttons once an answer is clicked
+    optionButtons.forEach(button => button.disabled = true); // lock after answering
+            // Highlight the correct answer
+    optionButtons.forEach(button => {
+        if (button.textContent === correctAnswer) {
+        button.classList.add("correct"); // green
+        }
+    });
+        // If the clicked button was wrong
+        if  (clickedButton.textContent !== correctAnswer){
+            clickedButton.classList.add("wrong");
+        }
+            else {
+            score++; // only add score if correct
+            scoreSpan.textContent=score;
+        };
+                 // Next question after 1 seconds
+        setTimeout(() => {
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }, 1000);
+}
 
- // If the clicked button was wrong
- if  (clickedButton.textContent !== correctAnswer){
-
-      clickedButton.classList.add("wrong");
-     
-      
-    }
-     else {
-    score++; // only add score if correct
-    scoreSpan.textContent=score;
-  };
- 
-
-    // Next question after 1 seconds
-    setTimeout(() => {
-      currentQuestion++;
-      if (currentQuestion < quizData.length) {
-        showQuestion();
-      } else {
-        showResults();
-      }
-    }, 1000);
-  }
-
-
-  function showResults() {
+function showResults() {
   quizScreen.classList.remove("active");
   resultScreen.classList.add("active");
+  finalScoreSpan.textContent = score;
 
+}
+function showScore() {
+  resultScreen.classList.remove("active");
+  scoreScreen.classList.add("active");
+     endQuiz();
+  // When quiz finishes:
+function endQuiz(score) {
+  
+      // 1. Get existing Name from localStorage
+
+    const name = localStorage.getItem("name");
+    const title = localStorage.getItem("title");
+    console.log(name);
+    document.getElementById("title-display").textContent = title + " ";
+    document.getElementById("name-display").textContent = name + " " ;
+
+  // 2. Get existing high score from localStorage
+  let storedData = JSON.parse(localStorage.getItem("highScore")) || { name: "", score: 0 };
+
+  // 3. Check if new score is higher
+  if (score > storedData.score) {
+    storedData = { name: playerName, score: score };
+    localStorage.setItem("highScore", JSON.stringify(storedData));
+    alert("🎉 New High Score!");
+  }
+
+  // 4. Show results on page
+  document.getElementById("final-score").innerText = `Your Score: ${score}`;
+  document.getElementById("high-score").innerText = `High Score: ${storedData.name} - ${storedData.score}`;
 
 }
 
+
+
+}
 function restartQuiz() {
   resultScreen.classList.remove("active");
-   startScreen.classList.add("active");
- 
+  scoreScreen.classList.remove("active");
+  quizScreen.classList.add("active");
+   startQuiz();
 }
   
 
- 

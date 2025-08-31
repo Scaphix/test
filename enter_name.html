@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jane Austen Quote Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <a href="index.html"><h1 id="title">Jane Austen Quote Quiz</h1></a>
+
+  
+    <div id="quiz-screen" class="quiz-card screen active">
+      <div class="quote" id="question-text"></div>
+      <div class="quiz-info">
+        <p>
+          Question <span id="current-question">1</span> of
+          <span id="total-questions">5</span>
+        </p>
+        <p>Score: <span id="score">0</span></p>
+      </div>
+      <div id="answers-container">
+        <div class="options">
+          <button id="option1"></button>
+          <button id="option2"></button>
+          <button id="option3"></button>
+          <button id="option4"></button>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div id="progress" class="progress"></div>
+      </div>
+    </div>
+
+    <div id="result-screen" class="quiz-card screen">
+      <h2>Quiz Complete!</h2>
+      <div class="result-info">
+        <p>
+          <span id="name-display">name</span> 
+          <br>
+          You scored <span id="final-score">0</span> out of
+          <span id="max-score">5</span>
+        </p>
+      </div>
+      <button id="score-btn">Show Score</button>
+      <button class="restart-btn">Restart Quiz</button>
+
+    </div>
+
+  <div id="score-screen" class="score-card screen">
+      <h2>Score table</h2>
+      <div class="quiz-end">
+        <p id="final-score">   <span id="name-display">name</span> </p>
+          <br>
+        <p  id="high-score">  </p>
+      </div>
+      <button class="restart-btn">Restart Quiz</button>
+    </div>
+
+
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
