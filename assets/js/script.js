@@ -107,16 +107,15 @@ function startQuiz() {
   currentQuestion = 0;
   score = 0;
   scoreSpan.textContent = 0;
-
+  //randomize the quotes
+  quizData.sort(() => Math.random() - 0.5);
   showQuestion();
 }
 
 function showQuestion() {
   // reset state
   answersDisabled = false;
-  //randomize the quotes
-  quizData.sort(() => Math.random() - 0.5);
-  const question = quizData[currentQuestion];
+   const question = quizData[currentQuestion];
   currentQuestionSpan.textContent = currentQuestion + 1;
   // Show the quote
   quoteElement.textContent = `${question.quote}`;
@@ -159,12 +158,18 @@ function checkAnswer(clickedButton, correctAnswer) {
 
   function playCorrectSound(){
     if (soundEnabled === true){
-    document.getElementById("correct-sound").play();
-  }
+  const correctSound = document.getElementById("correct-sound");
+  correctSound.pause();         // stop if already playing
+  correctSound.currentTime = 0; // rewind to start
+  correctSound.play();
+   }
 }
 function playWrongSound(){
     if  (soundEnabled === true){
-    document.getElementById("wrong-sound").play();
+  const wrongSound = document.getElementById("wrong-sound");
+  wrongSound.pause();
+  wrongSound.currentTime = 0;
+  wrongSound.play();
   }
 }
   // Next question after 1 seconds
