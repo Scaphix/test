@@ -1,8 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
-    document.getElementById("intro-melody").play();
-});
+  
+document.addEventListener("DOMContentLoaded", music);
 
+function music() {
+    let soundEnabled = false;  // global sound state
+    let muteBtn = document.getElementById("mute-btn");
+    muteBtn.addEventListener("click", function () { 
+        soundEnabled = !soundEnabled;
+   
+    // If turning sound OFF → pause melody if playing
+    if (soundEnabled===true) {
+      document.getElementById("intro-melody").play();
+        muteBtn.textContent =  "🔊 Sound On" ;
+    } else {
+        document.getElementById("intro-melody").pause(); 
+         muteBtn.textContent =  "🔇 Sound Off" ;
+    }
+  });
+}
 
 const startScreen = document.getElementById("start-screen");
 const nameScreen = document.getElementById("name-screen");

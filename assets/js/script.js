@@ -1,4 +1,13 @@
 
+let soundEnabled = false;
+
+document.getElementById("mute-btn").addEventListener("click", function () {
+  soundEnabled = !soundEnabled; // toggle
+
+  this.textContent = soundEnabled ? "🔊 Sound On" : "🔇 Sound Off";
+});
+
+
 
 // DOM Elements
 
@@ -140,7 +149,7 @@ function checkAnswer(clickedButton, correctAnswer) {
   // If the clicked button was wrong
   if (clickedButton.textContent !== correctAnswer) {
     clickedButton.classList.add("wrong");
-     playWrongSound();
+        playWrongSound();
    
   } else {
     score++; // only add score if correct
@@ -149,11 +158,15 @@ function checkAnswer(clickedButton, correctAnswer) {
   }
 
   function playCorrectSound(){
+    if (soundEnabled === true){
     document.getElementById("correct-sound").play();
   }
+}
 function playWrongSound(){
+    if  (soundEnabled === true){
     document.getElementById("wrong-sound").play();
   }
+}
   // Next question after 1 seconds
   setTimeout(() => {
     currentQuestion++;
