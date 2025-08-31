@@ -295,14 +295,14 @@ font-size: 1rem;
 
 
 /* Final score text */
-#final-score {
+.score-card #final-score {
   font-size: 2rem;
   margin-bottom: 8px;
   color: #16a085;
 }
 
 /* High score text */
-#high-score {
+.score-card #high-score {
   font-size: 2rem;
   margin-bottom: 15px;
   color: #e67e22;

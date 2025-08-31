@@ -30,6 +30,7 @@
           <button id="option3"></button>
           <button id="option4"></button>
         </div>
+        
       </div>
       <div class="progress-bar">
         <div id="progress" class="progress"></div>
@@ -40,7 +41,7 @@
       <h2>Quiz Complete!</h2>
       <div class="result-info">
         <p>
-          <span id="name-display">name</span> 
+          <span class="title-display">title</span> 
           <br>
           You scored <span id="final-score">0</span> out of
           <span id="max-score">5</span>
@@ -51,12 +52,14 @@
 
     </div>
 
-  <div id="score-screen" class="score-card screen">
+  <div id="score-screen" class="score-card screen active">
       <h2>Score table</h2>
       <div class="quiz-end">
-        <p id="final-score">   <span id="name-display">name</span> </p>
+        <p><span class="name-display">name</span> </p>
+        <br>
+        <p id="final-score"></p>
           <br>
-        <p  id="high-score">  </p>
+        <p id="high-score">  </p>
       </div>
       <button class="restart-btn">Restart Quiz</button>
     </div>
