@@ -3,7 +3,7 @@ let soundEnabled = false;
 document.getElementById("mute-btn").addEventListener("click", function () {
   soundEnabled = !soundEnabled; // toggle
 
-  this.innerHTML = soundEnabled ? `<i class="fa-solid fa-volume-high"></i> Sound On` : `<i class="fa-solid fa-volume-xmark"></i> Sound Off`;
+  this.innerHTML = soundEnabled ? `<i class="fa-solid fa-volume-high"></i> ` : `<i class="fa-solid fa-volume-xmark"></i> `;
 });
 
 
@@ -19,7 +19,7 @@ const questionText = document.getElementById("question-text");
 const currentQuestionSpan = document.getElementById("current-question");
 const totalQuestionsSpan = document.getElementById("total-questions");
 const scoreSpan = document.getElementById("score");
-const finalScoreSpan = document.getElementById("final-score");
+const finalScoreSpan = document.querySelector(".final-score");
 const myName = document.getElementById("name-display");
 const maxScoreSpan = document.getElementById("max-score");
 
@@ -34,7 +34,8 @@ const button4 = document.getElementById("option4");
 
 const optionButtons = [button1, button2, button3, button4];
 
-const restartButton = document.querySelector(".restart-btn");
+const restartButton = document.getElementById("restart-btn");
+const restartBtn = document.getElementById("restart-button");
 
 // 1. Quiz data
 const quizData = [
@@ -97,6 +98,7 @@ maxScoreSpan.textContent = quizData.length;
 // event listeners
 
 restartButton.addEventListener("click", restartQuiz);
+restartBtn.addEventListener("click", restartQuiz);
 scoreButton.addEventListener("click", showScore);
 
 startQuiz();
@@ -132,13 +134,16 @@ function showQuestion() {
     // Add new click behavior
     button.onclick = () => checkAnswer(button, question.answer);
   });
+
 }
 
 // Check the clicked answer
 function checkAnswer(clickedButton, correctAnswer) {
   // Disable all buttons once an answer is clicked
   optionButtons.forEach((button) => (button.disabled = true)); // lock after answering
+  
   // Highlight the correct answer
+
   optionButtons.forEach((button) => {
     if (button.textContent === correctAnswer) {
       button.classList.add("correct"); // green
@@ -185,44 +190,27 @@ function playWrongSound(){
 function showResults() {
   quizScreen.classList.remove("active");
   resultScreen.classList.add("active");
+
   finalScoreSpan.textContent = score;
+  
+   let finalScore = localStorage.setItem("playerScore", score);
    const title = localStorage.getItem("playerTitle");
    document.querySelector(".title-display").textContent = title;
 }
 function showScore() {
   resultScreen.classList.remove("active");
   scoreScreen.classList.add("active");
-  endQuiz();
-  // When quiz finishes:
-  function endQuiz(score) {
-    // 1. Get existing Name from localStorage
-
-    const name = localStorage.getItem("playerName");
-    const title = localStorage.getItem("playerTitle");
-    document.querySelector(".title-display").textContent = title;
+    // get the data
+    let name = localStorage.getItem("playerName");
+    let score = localStorage.getItem("playerScore");
+    console.log(name,score);
     document.querySelector(".name-display").textContent = name;
-
-    // 2. Get existing high score from localStorage
-    let storedData = JSON.parse(localStorage.getItem("highScore")) || {
-      name: "",
-      score: 0,
-    };
-
-    // 3. Check if new score is higher
-    if (score > storedData.score) {
-      storedData = { name: playerName, score: score };
-      localStorage.setItem("highScore", JSON.stringify(storedData));
-      alert("🎉 New High Score!");
-    }
-
-    // 4. Show results on page
-    document.getElementById("final-score").innerText = `Your Score: ${score}`;
-    document.getElementById(
-      "high-score"
-    ).innerText = `High Score: ${storedData.name} - ${storedData.score}`;
-  }
-  
+    
+        // 4. Show data on page
+    document.querySelector(".final-score").textContent = score;
+    document.getElementById("high-score").textContent = 10 ;
 }
+
 function restartQuiz() {
   resultScreen.classList.remove("active");
   scoreScreen.classList.remove("active");

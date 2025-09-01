@@ -15,42 +15,11 @@ body {
   border: 2px solid #e2c6b6;
   border-radius: 20px;
   width: 100%;
-  max-width: 600px;
-  overflow: hidden;
+  max-width: 800px;
   position: relative;
+  text-align: center;
 }
 
-/*intro screen*/
-.intro-card {
-  background-color: #fffaf7;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 2px solid #e2c6b6;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 800px;
-  
-}
-.intro-card p {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      color: #9c5c65;
-      background: #fffaf7;
-      text-align: center;
-       width: 100%;
-       max-width: 800px;
-      margin-bottom: 1rem;
-    }
-     .intro-card h2 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      color: #9c5c65;
-      background: #fffaf7;
-      text-align: center;
-       width: 100%;
-       max-width: 800px;
-      margin-bottom: 1rem;
-    }
-   
 
     /* Inline error message style */
 .error-msg {
@@ -80,7 +49,7 @@ body {
       border-radius: 20px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       padding: 2rem;
-      max-width: 600px;
+      max-width: 800px;
       text-align: center;
       margin-bottom: 4rem;
 
@@ -102,7 +71,7 @@ h2, p {
       font-size: 2.5rem;
       color: #9c5c65;
       background: #fffaf7;
-      max-width: 600px;
+      max-width: 800px;
       text-align: center;
       margin-bottom: 2rem;
     }
@@ -116,7 +85,7 @@ h2::after {
 .quote {
   font-style: italic;
   font-size: 1.5rem;
-  margin: 0;
+  margin-top: 10px;
   color: #4a3c3c;
   position: relative;
   padding: 2rem;
@@ -200,6 +169,22 @@ button {
   transform: translateY(-2px);
 }
 
+ #button button{
+ display: block;
+  width: 10%;
+  margin:  0;
+  padding:0.5rem;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(to right, #f9dede, #f3caca);
+  color: #333;
+  font-size: 0.7rem;
+  cursor: pointer;
+  position: absolute;
+
+}
+
+
 .options button:active {
   transform: translateY(1px);
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
@@ -240,43 +225,7 @@ button {
   margin-top: 0;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 500px) {
-  /* when we hit 500px and below, implement the styles below */
 
-  .screen {
-    padding: 2rem;
-  }
-#title{
-    font-size: 1.5rem;
-    }
- h1,h2 {
-    font-size: 1rem;
-  }
-  
- .quiz-info p{
-font-size: 1rem;
-  }
-.result-info p {
-  font-size: 1rem; 
-}
-
-.quiz-card{
- padding: 0.5rem;
-}
-
-.quote {
-
-  font-size: 1rem;
-  padding: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-  button{
-    padding: 1rem;
-    margin: 1rem;
-    font-size: 0.5rem;
-  }
-}
 
 
 
@@ -308,3 +257,65 @@ font-size: 1rem;
   color: #e67e22;
 }
 
+/* RESPONSIVE DESIGN */
+@media (max-width: 500px) {
+  /* when we hit 500px and below, implement the styles below */
+
+  body {
+   margin:0.5rem;
+    max-height: 100vh;
+    padding: 0.5rem;
+    }
+  .screen {
+    padding: 1.rem;
+  }
+#title{
+    font-size: 1.5rem;
+    padding:1rem;
+    margin-bottom: 2rem;
+    }
+ h2 {
+    font-size: 1.5rem;
+    padding:0;
+    
+  }
+h1, p {
+    font-size: 1.5rem;
+    margin:0;
+  }
+ #name-screen{
+      
+ h2 {
+    font-size: 2.5rem;
+    padding:0;
+    
+  }
+p {
+    font-size: 2rem;
+    padding-top: 1rem;
+    margin:0;
+  }
+}
+.quiz-card{
+ padding: 0.5rem;
+}
+
+  button{
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+   #button button{
+ 
+  font-size: 0.4rem;
+ }
+
+ input, select {
+ 
+      max-width:100px;
+      padding: 0.1rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+ }
+
+}

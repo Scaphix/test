@@ -10,10 +10,10 @@ function music() {
     // If turning sound OFF → pause melody if playing
     if (soundEnabled===true) {
       document.getElementById("intro-melody").play();
-        muteBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Sound On` ;
+        muteBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>` ;
     } else {
         document.getElementById("intro-melody").pause(); 
-         muteBtn.innerHTML =  `<i class="fa-solid fa-volume-xmark"></i> Sound Off` ;
+         muteBtn.innerHTML =  `<i class="fa-solid fa-volume-xmark"></i> ` ;
     }
   });
 }

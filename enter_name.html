@@ -19,7 +19,9 @@
 
   
     <div id="quiz-screen" class="quiz-card screen active">
-        <button id="mute-btn"><i class="fa-solid fa-volume-xmark"></i> Sound Off</button>
+      <div id=button >
+        <button id="mute-btn"><i class="fa-solid fa-volume-xmark"></i> </button>
+      </div>
       <div class="quote" id="question-text"></div>
       <div class="quiz-info">
         <p>
@@ -48,12 +50,12 @@
         <p>
           <span class="title-display">title</span> 
           <br>
-          You scored <span id="final-score">0</span> out of
+          You scored <span class="final-score">0</span> out of
           <span id="max-score">5</span>
         </p>
       </div>
       <button id="score-btn">Show Score</button>
-      <button class="restart-btn">Restart Quiz</button>
+      <button id="restart-button">Restart Quiz</button>
 
     </div>
 
@@ -62,11 +64,11 @@
       <div class="quiz-end">
         <p><span class="name-display">name</span> </p>
         <br>
-        <p id="final-score"></p>
+        <p >Your score is <span class="final-score">0</span> </p>
           <br>
-        <p id="high-score">  </p>
+        <p>The high score is <span id="high-score">0</span> </p>
       </div>
-      <button class="restart-btn">Restart Quiz</button>
+      <button id="restart-btn">Restart Quiz</button>
     </div>
   
  <script src="https://kit.fontawesome.com/abdecf94a5.js" crossorigin="anonymous"></script>
