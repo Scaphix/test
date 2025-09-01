@@ -1,10 +1,9 @@
-
 let soundEnabled = false;
 
 document.getElementById("mute-btn").addEventListener("click", function () {
   soundEnabled = !soundEnabled; // toggle
 
-  this.textContent = soundEnabled ? "🔊 Sound On" : "🔇 Sound Off";
+  this.innerHTML = soundEnabled ? `<i class="fa-solid fa-volume-high"></i> Sound On` : `<i class="fa-solid fa-volume-xmark"></i> Sound Off`;
 });
 
 
@@ -222,6 +221,7 @@ function showScore() {
       "high-score"
     ).innerText = `High Score: ${storedData.name} - ${storedData.score}`;
   }
+  
 }
 function restartQuiz() {
   resultScreen.classList.remove("active");

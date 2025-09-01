@@ -10,10 +10,10 @@ function music() {
     // If turning sound OFF → pause melody if playing
     if (soundEnabled===true) {
       document.getElementById("intro-melody").play();
-        muteBtn.textContent =  "🔊 Sound On" ;
+        muteBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Sound On` ;
     } else {
         document.getElementById("intro-melody").pause(); 
-         muteBtn.textContent =  "🔇 Sound Off" ;
+         muteBtn.innerHTML =  `<i class="fa-solid fa-volume-xmark"></i> Sound Off` ;
     }
   });
 }
@@ -37,14 +37,14 @@ document.getElementById("name-btn").addEventListener("click", function () {
   document.getElementById("name-error").textContent = "";
 
   if (!title) {
-    document.getElementById("title-error").textContent =
-      "⚠️ Please select a title.";
+    document.getElementById("title-error").innerHTML =
+      `<i class="fa-solid fa-triangle-exclamation"></i> Please select a title.`;
     return false;
   }
 
   if (!name) {
-    document.getElementById("name-error").textContent =
-      "⚠️ Please enter your name.";
+    document.getElementById("name-error").innerHTML =
+      `<i class="fa-solid fa-triangle-exclamation"></i>Please enter your name.`;
     return false;
   }
 
